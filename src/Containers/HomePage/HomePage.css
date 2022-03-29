@@ -1,0 +1,70 @@
+@font-face {
+  font-family: Avenir-Next;
+  src: url(../../Assets/fonts/avenir_next.otf);
+}
+
+.home-page-wrapper {
+  margin: 100px 0 0 0;
+}
+
+.home-banner-wrapper {
+  background-image: url('../../Assets/images/home-banner.png');
+  width: 100%;
+  padding: 100px 40px;
+  background-size: contain;
+  background-repeat:no-repeat;
+}
+
+.home-redirect-button {
+  width: 150px;
+  margin: 20px 8px 4px 8px;
+  border-radius: 10px;
+  background-color: #57946C;
+  color: #ffffff;
+  border: 1px solid #57946C;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.more-button {
+  display: flex;
+  margin: 40px 0 0 0;
+  border: 1px solid rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.7);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+  cursor: pointer;
+  padding: 15px 0;
+}
+
+.section-thumbnail-konsultasi {
+  width: 240px;
+  justify-content: center;
+  background-size: cover;
+  background-repeat:no-repeat;
+  padding: 40px;
+  background-image: url('../../Assets/images/konsultasi-thumbnail.png');
+  cursor: pointer;
+}
+
+.section-thumbnail-artikel {
+  width: 240px;
+  background-size: cover;
+  background-repeat:no-repeat;
+  padding: 40px;
+  background-image: url('../../Assets/images/artikel-thumbnail.png');
+  cursor: pointer;
+}
+
+.section-thumbnail-belanja {
+  width: 240px;
+  background-size: cover;
+  background-repeat:no-repeat;
+  padding: 40px;
+  background-image: url('../../Assets/images/belanja-thumbnail.png');
+  cursor: pointer;
+}
