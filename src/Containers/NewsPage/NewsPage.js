@@ -11,7 +11,7 @@ const NewsPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      let fetchedNews = await getNews("gardening");
+      let fetchedNews = await getNews("tanaman hias");
       let groupedNews = []
       while (fetchedNews.length > 0) {
         groupedNews.push(fetchedNews.splice(0,21))
