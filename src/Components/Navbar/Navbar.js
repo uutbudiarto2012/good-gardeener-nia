@@ -144,7 +144,7 @@ const Navbar = () => {
       <div className='navbar-menu'>
         <div>
           <div className='item' onClick={handleProfileClick}>
-            <PersonOutlineIcon style={{fontSize: '28px'}}/>
+            <PersonOutlineIcon style={{ fontSize: '28px' }} />
           </div>
           <StyledMenu
             id="customized-menu"
@@ -153,25 +153,29 @@ const Navbar = () => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <div style={{margin: '0 20px 0 20px'}}>
+            <div style={{ margin: '0 20px 0 20px' }}>
               <Grid container>
                 <Grid item xs={3}>
-                  <div style={{margin: '20px 0 0 0'}}>
-                    <AccountCircleTwoTone fontSize='large'/>
+                  <div style={{ margin: '20px 0 0 0' }}>
+                    <AccountCircleTwoTone fontSize='large' />
                   </div>
                 </Grid>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={7}>
                   <div className='text-no-margin'>
                     <h5>{!!currentUser ? currentUser.nama : '-'}</h5>
-                    <h6>{!!currentUser ? currentUser.role : '-'}</h6>
+                    <h6>
+                      {
+                        currentUser?.role === "client" ? "Klien" : "Konsultan"
+                      }
+                    </h6>
                   </div>
                 </Grid>
               </Grid>
             </div>
             <StyledMenuItem onClick={() => handleLogout()}>
               <ListItemText primary="Keluar" />
-              <ListItemIcon/>
+              <ListItemIcon />
             </StyledMenuItem>
           </StyledMenu>
         </div>
@@ -186,7 +190,7 @@ const Navbar = () => {
     const latestConsultation = await getLatestConsultationByClientId(fetchedCurrentUser.id);
 
     if (latestConsultation === null) return '/consultant';
-    
+
     const { tanggal } = latestConsultation;
     const endConsultationDateTime = moment(tanggal).add(1, 'hours');
     const currentDateTime = moment();
@@ -218,45 +222,45 @@ const Navbar = () => {
         'redirect': '/transaction'
       })
     }
-    return menuItems.map(menuItem => {
+    return menuItems.map((menuItem, key) => {
       return <a
+        key={key}
         href={menuItem.redirect}
-        class="item"
-        >
-          {menuItem.title}
-        </a>
+        className="item"
+      >
+        {menuItem.title}
+      </a>
     })
   }
 
   return (
     <>
-    <div class="navbar-full-wrapper">
-      <div style={{width: '300px', cursor: 'pointer', backgroundColor: 'white', borderBottom: '1px solid rgba(0,0,0,0.1)'}} onClick={() => history.push('/')}/>
-      <div class="navbar-wrapper">
-        <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-          <div class='navbar-menu'>
-            {renderNavbarMenu()}
-          </div>
-          <div
-            style={{
-              width: `${
-                location.pathname==='/login' ||
-                location.pathname==='/register' ?
-                '50%' : '20%'
-              }`,
-              marginLeft: '20px'
-            }}
-          >
-            {
-              !!currentUser &&
-              !(location.pathname==='/login' ||
-              location.pathname==='/register') ?
-                renderLoggedInNavbarMenu() : renderLoginPrompt()
-            }
+      <div className="navbar-full-wrapper">
+        <div style={{ width: '300px', cursor: 'pointer', backgroundColor: 'white', borderBottom: '1px solid rgba(0,0,0,0.1)' }} onClick={() => history.push('/')} />
+        <div className="navbar-wrapper">
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <div className='navbar-menu'>
+              {renderNavbarMenu()}
+            </div>
+            <div
+              style={{
+                width: `${location.pathname === '/login' ||
+                  location.pathname === '/register' ?
+                  '50%' : '20%'
+                  }`,
+                marginLeft: '20px'
+              }}
+            >
+              {
+                !!currentUser &&
+                  !(location.pathname === '/login' ||
+                    location.pathname === '/register') ?
+                  renderLoggedInNavbarMenu() : renderLoginPrompt()
+              }
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   )
 }

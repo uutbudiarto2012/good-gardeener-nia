@@ -1,5 +1,5 @@
 import { Grid } from '@material-ui/core';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { fireAuth, getTransactionsByCurrentUser } from '../../service';
 import './TransactionPage.css';
@@ -29,16 +29,17 @@ const TransactionPage = () => {
   const renderItemCards = () => {
     return transactions.length > 0 ? (
       <Grid container>
-        { transactions[page-1].map(item => {
-            return (
-              <TransactionCard
-                item={item}
-              />
-            )
+        {transactions[page - 1].map(item => {
+          return (
+            <TransactionCard
+              key={item.id}
+              item={item}
+            />
+          )
         })}
       </Grid>
     ) : (
-      <div style={{margin: '40px 0 0 40px'}}>
+      <div style={{ margin: '40px 0 0 40px' }}>
         <h3>Anda tidak memiliki transaksi sejauh ini</h3>
       </div>
     )
@@ -47,11 +48,11 @@ const TransactionPage = () => {
   return (
     <div>
       <div className='transaction-banner-wrapper'>
-        <div style={{color: 'black', fontFamily: 'Avenir-Next', fontSize: '64px'}}>
+        <div style={{ color: 'black', fontFamily: 'Avenir-Next', fontSize: '64px' }}>
           Riwayat
         </div>
       </div>
-      <div style={{padding: '40px 100px'}}>
+      <div style={{ padding: '40px 100px' }}>
         {renderItemCards()}
         <div className='pagination-container'>
           <Pagination

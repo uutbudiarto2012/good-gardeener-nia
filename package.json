@@ -17,6 +17,7 @@
     "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-localstorage": "^1.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "spotify-web-api-node": "^5.0.0",
@@ -49,6 +50,7 @@
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.0",
+    "json-loader": "^0.5.7",
     "nodemon": "^2.0.7"
   }
 }
