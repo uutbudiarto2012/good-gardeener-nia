@@ -18,6 +18,7 @@ const PaymentPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         localStorage.setItem("formPayment", JSON.stringify(form))
+        console.log("OK")
         history.replace("/payment")
     }
     return (
