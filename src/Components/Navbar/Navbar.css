@@ -45,3 +45,11 @@
 .text-no-margin h6{
   margin-top: 1px !important;
 }
+.menu-item{
+  color: #232323;
+  font-weight: 500;
+}
+.menu-item.active{
+  color: #6AB484;
+  font-weight: 600;
+}

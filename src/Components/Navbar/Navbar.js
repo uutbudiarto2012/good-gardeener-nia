@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import './Navbar.css';
 import {
-  Grid,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  ListItemText
+  Grid, ListItemIcon,
+  ListItemText, Menu,
+  MenuItem
 } from '@material-ui/core';
-import { useHistory, useLocation } from 'react-router-dom';
-import { fetchCurrentUser, fireAuth, getLatestConsultationByClientId, signOut } from '../../service';
+import { withStyles } from '@material-ui/core/styles';
 import { AccountCircleTwoTone } from '@material-ui/icons';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import moment from 'moment';
+import React, { Fragment, useEffect, useState } from 'react';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { fetchCurrentUser, fireAuth, getLatestConsultationByClientId, signOut } from '../../service';
+import './Navbar.css';
 
 const StyledMenu = withStyles({
   paper: {
@@ -52,6 +50,7 @@ const Navbar = () => {
 
   const history = useHistory();
   const location = useLocation();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -201,7 +200,9 @@ const Navbar = () => {
   }
 
 
-  const renderNavbarMenu = () => {
+  const NavbarMenu = () => {
+    const { pathname } = location;
+    const linkPoint = pathname.split('/').pop()
     const menuItems = [
       {
         'title': 'Konsultasi',
@@ -222,15 +223,21 @@ const Navbar = () => {
         'redirect': '/transaction'
       })
     }
-    return menuItems.map((menuItem, key) => {
-      return <a
-        key={key}
-        href={menuItem.redirect}
-        className="item"
-      >
-        {menuItem.title}
-      </a>
-    })
+    return (
+      <Fragment>
+        {
+          menuItems.map((item, key) => (
+            <NavLink
+              key={key}
+              to={item.redirect}
+              className="item menu-item"
+            >
+              {item.title}
+            </NavLink>
+          ))
+        }
+      </Fragment>
+    )
   }
 
   return (
@@ -240,7 +247,7 @@ const Navbar = () => {
         <div className="navbar-wrapper">
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <div className='navbar-menu'>
-              {renderNavbarMenu()}
+              <NavbarMenu />
             </div>
             <div
               style={{
