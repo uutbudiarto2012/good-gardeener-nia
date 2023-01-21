@@ -18,7 +18,7 @@ const HomePage = () => {
     const fetchData = async () => {
       const fetchedConsultants = await getAllConsultants();
       const fetchedProducts = await getAllProducts();
-      const fetchedNews = await getNews("gardening");
+      const fetchedNews = await getNews("tanaman");
       setConsultants(fetchedConsultants[0].slice(0,3));
       setProducts(fetchedProducts[0].slice(0,3));
       setNews(fetchedNews.slice(0,3));
@@ -139,7 +139,7 @@ const HomePage = () => {
       </div>
       <div style={{margin: '40px'}}>
         <h1>Produk</h1>
-        <p>Temukan produk menarik untuk menemani kegiatan berkebunmnu</p>
+        <p>Temukan produk menarik untuk menemani kegiatan berkebunmu</p>
         <Grid container>
           {renderRecommendedItemCards()}
         </Grid>
