@@ -36,6 +36,11 @@ const ProductDetailPage = () => {
   }, [refresh]);
 
   const handleProductTransaction = async () => {
+    if (!currentUser) {
+      alert("Silahkan masuk untuk membeli")
+      history.push("/login")
+      return
+    }
     if (item.stok < quantity) {
       setSeverity('error');
       setMessage('Stok barang tidak cukup!');
