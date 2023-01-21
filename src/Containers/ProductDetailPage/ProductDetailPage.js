@@ -5,6 +5,7 @@ import './ProductDetailPage.css';
 import { Grid, Snackbar, TextField } from '@material-ui/core';
 import { formattedCurrency } from '../../Constants/format';
 import MuiAlert from '@material-ui/lab/Alert';
+import { ArrowBack } from '@material-ui/icons';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -57,6 +58,21 @@ const ProductDetailPage = () => {
     if (item === null) return;
     return (
       <div className='item-detail-wrapper'>
+        <button
+          onClick={() => history.goBack()}
+          style={{
+            backgroundColor: "transparent",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "10px"
+          }} >
+          <ArrowBack />
+          <p style={{
+            fontSize: 18
+          }}>Kembali</p>
+        </button>
         <div style={{ marginTop: '20px' }}>
           <Grid container spacing={2}>
             <Grid item xs={3}>

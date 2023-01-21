@@ -201,8 +201,6 @@ const Navbar = () => {
 
 
   const NavbarMenu = () => {
-    const { pathname } = location;
-    const linkPoint = pathname.split('/').pop()
     const menuItems = [
       {
         'title': 'Konsultasi',
@@ -243,7 +241,32 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar-full-wrapper">
-        <div style={{ width: '300px', cursor: 'pointer', backgroundColor: 'white', borderBottom: '1px solid rgba(0,0,0,0.1)' }} onClick={() => history.push('/')} />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            width: '340px',
+            cursor: 'pointer',
+            backgroundColor: 'white',
+            borderBottom: '1px solid rgba(0,0,0,0.1)'
+          }} onClick={() => history.push('/')}
+        >
+          <img
+            style={{
+              width: 40,
+              height: 40,
+              marginLeft: 60,
+              marginRight: 5,
+              borderRadius: "50%"
+            }}
+            src='./logo/logo.png' />
+          <div
+            style={{
+              fontSize: 20,
+              fontWeight: 600
+            }}
+          >Good Gardener</div>
+        </div>
         <div className="navbar-wrapper">
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <div className='navbar-menu'>
