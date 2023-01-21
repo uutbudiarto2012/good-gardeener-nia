@@ -18,10 +18,10 @@ const HomePage = () => {
     const fetchData = async () => {
       const fetchedConsultants = await getAllConsultants();
       const fetchedProducts = await getAllProducts();
-      const fetchedNews = await getNews("tanaman");
-      setConsultants(fetchedConsultants[0].slice(0,3));
-      setProducts(fetchedProducts[0].slice(0,3));
-      setNews(fetchedNews.slice(0,3));
+      const fetchedNews = await getNews("bunga matahari");
+      setConsultants(fetchedConsultants[0].slice(0, 3));
+      setProducts(fetchedProducts[0].slice(0, 3));
+      setNews(fetchedNews.slice(0, 3));
     }
     fetchData();
   }, []);
@@ -30,7 +30,7 @@ const HomePage = () => {
     const { title, url, urlToImage, source: { name: sourceName } } = article;
     return (
       <Grid item xs={3}>
-        <a style={{textDecoration: 'none', color: '#000000'}} href={url}>
+        <a style={{ textDecoration: 'none', color: '#000000' }} href={url}>
           <div className='news-card'>
             <div className='news-image'>
               <img
@@ -61,13 +61,13 @@ const HomePage = () => {
       }
     ]
     if (news.length === 0) setNews(dummyItems);
-    return news.splice(0,4).map(article => renderNewsCard(article));
+    return news.splice(0, 4).map(article => renderNewsCard(article));
   }
 
   const renderRecommendedItemCards = () => {
     if (products.length === 0) return;
     return products.map(item => {
-      const { picture, nama, harga, rating=4.8, id} = item;
+      const { picture, nama, harga, rating = 4.8, id } = item;
       return (
         <ItemCard
           image={picture}
@@ -81,15 +81,15 @@ const HomePage = () => {
   }
 
   const renderSectionThumbnails = () => {
-    return <div style={{display: 'flex'}}>
+    return <div style={{ display: 'flex' }}>
       <div class='section-thumbnail-konsultasi' onClick={() => history.push('/consultant')}>
-        <h3 style={{textAlign: 'center', color: 'white', fontFamily: 'Avenir-Next', fontSize: '24px'}}>Konsultasi</h3>
+        <h3 style={{ textAlign: 'center', color: 'white', fontFamily: 'Avenir-Next', fontSize: '24px' }}>Konsultasi</h3>
       </div>
       <div class='section-thumbnail-artikel' onClick={() => history.push('/news')}>
-        <h3 style={{textAlign: 'center', color: 'white', fontFamily: 'Avenir-Next', fontSize: '24px'}}>Artikel</h3>
+        <h3 style={{ textAlign: 'center', color: 'white', fontFamily: 'Avenir-Next', fontSize: '24px' }}>Artikel</h3>
       </div>
       <div class='section-thumbnail-belanja' onClick={() => history.push('/product')}>
-        <h3 style={{textAlign: 'center', color: 'white', fontFamily: 'Avenir-Next', fontSize: '24px'}}>Belanja</h3>
+        <h3 style={{ textAlign: 'center', color: 'white', fontFamily: 'Avenir-Next', fontSize: '24px' }}>Belanja</h3>
       </div>
     </div>
   }
@@ -97,7 +97,7 @@ const HomePage = () => {
   const renderConsultantsCards = () => {
     if (consultants.length === 0) return;
     return consultants.map(consultant => {
-      const { picture, nama, rating=4.9, id} = consultant;
+      const { picture, nama, rating = 4.9, id } = consultant;
       return (
         <ConsultantCard
           image={picture}
@@ -108,36 +108,36 @@ const HomePage = () => {
       )
     })
   }
-  
+
   return (
     <div className='home-page-wrapper'>
       <div className='home-banner-wrapper'>
-        <p style={{color: 'black', fontFamily: 'Avenir-Next', fontSize: '24px'}}>
+        <p style={{ color: 'black', fontFamily: 'Avenir-Next', fontSize: '24px' }}>
           Selamat datang di
         </p>
-        <div style={{color: 'black', fontFamily: 'Avenir-Next', fontSize: '64px'}}>
+        <div style={{ color: 'black', fontFamily: 'Avenir-Next', fontSize: '64px' }}>
           Good Gardener
         </div>
-        <p style={{color: 'black', fontSize: '18px'}}>
+        <p style={{ color: 'black', fontSize: '18px' }}>
           Konsultasi, informasi dan belanja alat berkebun, semuanya disini
         </p>
         {renderSectionThumbnails()}
       </div>
-      <div style={{margin: '40px'}}>
+      <div style={{ margin: '40px' }}>
         <h1>Konsultasi</h1>
         <p>Ajukan pertanyaanmu ke praktisi berpengalaman dalam berkebun</p>
         <Grid container>
           {renderConsultantsCards()}
         </Grid>
       </div>
-      <div style={{margin: '40px'}}>
+      <div style={{ margin: '40px' }}>
         <h1>Artikel</h1>
         <p>Lihat artikel terbaru kami untuk tips dan pengetahuan berkebun</p>
         <Grid container>
           {renderNewsCards()}
         </Grid>
       </div>
-      <div style={{margin: '40px'}}>
+      <div style={{ margin: '40px' }}>
         <h1>Produk</h1>
         <p>Temukan produk menarik untuk menemani kegiatan berkebunmu</p>
         <Grid container>
