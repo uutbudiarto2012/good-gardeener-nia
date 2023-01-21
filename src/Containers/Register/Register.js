@@ -41,7 +41,7 @@ const Register = () => {
     if (currentUser) {
       history.push('/home');
     } else {
-      window.alert('Wrong email/password. Please try again');
+      window.alert('Email/kata sandi salah. Silakan coba lagi');
     }
   }
 
@@ -55,7 +55,7 @@ const Register = () => {
       <Grid item xs={5}>
         <div className='register-form-container'>
           <div style={{height: '24px'}}></div>
-          <h1 style={{textAlign: 'left', fontSize: '48px'}}>Register</h1>
+          <h1 style={{textAlign: 'left', fontSize: '48px'}}>Pendaftaran</h1>
           <Grid container alignItems="flex-end">
             <Grid item xs={12}>
               <TextField
@@ -86,7 +86,7 @@ const Register = () => {
             <Grid item xs={12}>
               <TextField
                 id="password"
-                label="Password"
+                label="Kata Sandi"
                 type="password"
                 variant="outlined"
                 fullWidth="true"
@@ -157,7 +157,7 @@ const Register = () => {
             <Grid item xs={4}></Grid>
             <Grid item xs={4} alignItems='center'>
               <div className="login-btn" onClick={() => handleRegister()}>
-                Register
+                Daftar
               </div>
             </Grid>
             <Grid item xs={4}></Grid>

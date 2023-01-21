@@ -22,7 +22,7 @@ const Login = () => {
     if (currentUser) {
       history.push('/home');
     } else {
-      window.alert('Wrong email/password. Please try again');
+      window.alert('Email/kata sandi salah. Silakan coba lagi');
     }
   }
 
@@ -36,7 +36,7 @@ const Login = () => {
       <Grid item xs={5}>
         <div className='form-container'>
           <div style={{height: '48px'}}></div>
-          <h1 style={{textAlign: 'left', fontSize: '48px'}}> Login </h1>
+          <h1 style={{textAlign: 'left', fontSize: '48px'}}> Masuk </h1>
           <Grid container alignItems="flex-end">
             <Grid item xs={12}>
               <TextField
@@ -55,7 +55,7 @@ const Login = () => {
             <Grid item xs={12}>
               <TextField
                 id="password"
-                label="Password"
+                label="Kata Sandi"
                 type="password"
                 variant="outlined"
                 fullWidth="true"
@@ -71,7 +71,7 @@ const Login = () => {
             <Grid item xs={4}></Grid>
             <Grid item xs={4} alignItems='center'>
               <div className="login-btn" onClick={() => handleLogin()}>
-                Login
+                Masuk
               </div>
             </Grid>
             <Grid item xs={4}></Grid>

@@ -92,7 +92,7 @@ const Navbar = () => {
       },
       register: {
         message: 'Sudah memiliki akun?',
-        prompt: 'Login',
+        prompt: 'Masuk',
         style: {
           margin: '0 10px'
         },
@@ -100,7 +100,7 @@ const Navbar = () => {
       },
       loggedIn: {
         message: 'Daftar',
-        prompt: 'Login',
+        prompt: 'Masuk',
         style: {
           margin: '0 10px',
           cursor: 'pointer'
